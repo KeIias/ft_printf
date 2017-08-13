@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/12/18 20:12:34 by agautier          #+#    #+#             */
+/*   Updated: 2016/12/18 20:14:27 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+void		ft_lstrev(t_list **alst)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	t_list	*prev;
+	t_list	*cur;
+	t_list	*next;
+
+	prev = NULL;
+	cur = *alst;
+	while (cur != NULL)
+	{
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+	*alst = prev;
+}

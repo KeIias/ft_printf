@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/11 12:29:32 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/26 18:43:11 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	size_t	i;
+	char	*psrc;
+	char	*pdst;
+
+	i = 0;
+	psrc = (char *)src;
+	pdst = (char *)dst;
+	if (psrc < pdst)
+	{
+		while (len--)
+		{
+			pdst[len] = psrc[len];
+		}
+	}
+	else
+		while (i < len)
+		{
+			pdst[i] = psrc[i];
+			i++;
+		}
+	return (dst);
+}

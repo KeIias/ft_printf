@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/18 22:16:12 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/29 21:24:51 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+void	ft_striter(char *s, void (*f)(char *))
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	if (!s || !f)
+		return ;
+	while (*s)
+		f(s++);
+}

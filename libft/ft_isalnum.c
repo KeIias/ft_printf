@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/24 11:40:45 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/27 00:41:00 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+int		ft_isalnum(int c)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	return (ft_isalpha(c) || ft_isdigit(c));
+}

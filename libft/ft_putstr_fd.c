@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/23 21:42:50 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/27 05:03:54 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
+#include <unistd.h>
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+void	ft_putstr_fd(char const *s, int fd)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
+}

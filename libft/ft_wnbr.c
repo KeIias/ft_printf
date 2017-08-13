@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_wnbr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/29 15:27:29 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/29 15:27:48 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
-
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
-{
-	flags
-	conv
-	prec
-	modif
-}					t_print;
+/*
+** This function will count the ammount of words in an s string. Words are
+** separated by the c char. The ammount of words will be returned as an int.
 */
-#endif
+
+int		ft_wnbr(const char *s, char c)
+{
+	int ctr;
+
+	ctr = 0;
+	while (*s)
+	{
+		while (*s == c && *s)
+			s++;
+		if (*s)
+			ctr++;
+		while (*s != c && *s)
+			s++;
+	}
+	return (ctr);
+}

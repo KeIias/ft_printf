@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/16 12:04:51 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/27 05:11:58 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+char	*ft_strstr(const char *big, const char *little)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	size_t	i;
+	char	*str;
+
+	if (*little == '\0')
+		return ((char*)big);
+	i = ft_strlen(little);
+	str = (char *)big;
+	while (*str)
+	{
+		if (*str == *little && ft_memcmp(str, little, i) == 0)
+			return (str);
+		str++;
+	}
+	return (NULL);
+}

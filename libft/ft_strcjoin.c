@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strcjoin.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2017/07/31 12:18:57 by agautier          #+#    #+#             */
+/*   Updated: 2017/07/31 12:21:56 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+char	*ft_strcjoin(char *s1, char const *s2, char c)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	size_t		len;
+	char		*result;
+
+	len = 0;
+	result = NULL;
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1);
+	len += ft_strclen(s2, c);
+	if (!(result = ft_strnew(len)))
+		return (NULL);
+	result = ft_strcpy(result, s1);
+	result = (ft_strccat(result, s2, c));
+	return (result);
+}

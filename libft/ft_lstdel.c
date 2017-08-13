@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/27 22:03:09 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/27 23:48:28 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
+#include <stdlib.h>
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	t_list *cur;
+	t_list *nxt;
+
+	cur = *alst;
+	while (cur)
+	{
+		nxt = cur->next;
+		del(cur->content, cur->content_size);
+		free(cur);
+		cur = nxt;
+	}
+	*alst = NULL;
+}

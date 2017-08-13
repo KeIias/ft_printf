@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2017/08/11 02:18:24 by agautier          #+#    #+#             */
+/*   Updated: 2017/08/11 03:54:33 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+int		ft_display(char *format)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	int i;
+	int j;
+	char *str;
+
+	i = -1;
+	j = 0;
+	while (format[++i] != '%' && format[i] != '\0')
+		ft_putchar(format[i]);
+	if (format[i] == '%')
+	{
+		while (format[++i] >= 'A' && format[i] <= 'z')
+			str[j] = format[i];
+		ft_detect(str);
+	}
+	return (0);
+}

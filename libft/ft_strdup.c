@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/12 14:53:15 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/26 21:59:52 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
+#include <stdlib.h>
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+char	*ft_strdup(const char *s1)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	int		i;
+	int		len;
+	char	*cpy;
+
+	i = 0;
+	len = ft_strlen((char*)s1);
+	cpy = (char*)malloc((len + 1) * sizeof(*s1));
+	if (cpy == NULL)
+		return (0);
+	cpy[len + 1] = '\0';
+	while (i <= len)
+	{
+		cpy[i] = s1[i];
+		i++;
+	}
+	return (cpy);
+}

@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/14 13:21:33 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/25 15:17:08 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	size_t i;
+
+	i = 0;
+	while (i < len)
+	{
+		if (src[i])
+			dst[i] = src[i];
+		else
+			while (i < len)
+				dst[i++] = '\0';
+		i++;
+	}
+	return (dst);
+}

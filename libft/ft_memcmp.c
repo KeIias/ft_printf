@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:56:51 by agautier         ###   ########.fr       */
+/*   Created: 2016/11/12 12:13:34 by agautier          #+#    #+#             */
+/*   Updated: 2016/11/25 15:02:18 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#include "libft.h"
 
-#include <stdarg.h>
-#include "./libft/libft.h"
-
-int			ft_printf(const char *format, ...);
-char		*ft_detect(char *str);
-int			ft_display(char *format);
-
-/*typedef struct		s_print
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	flags
-	conv
-	prec
-	modif
-}					t_print;
-*/
-#endif
+	size_t			i;
+	unsigned char	*s1t;
+	unsigned char	*s2t;
+
+	i = 0;
+	s1t = (unsigned char *)s1;
+	s2t = (unsigned char *)s2;
+	while (i < n && s1t[i] == s2t[i])
+		i++;
+	if (n == i)
+		return (0);
+	return ((unsigned char)s1t[i] - (unsigned char)s2t[i]);
+}
