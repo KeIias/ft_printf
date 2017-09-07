@@ -6,29 +6,30 @@
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 10:44:41 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 04:45:04 by agautier         ###   ########.fr       */
+/*   Updated: 2017/09/05 05:51:21 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int ft_printf(const char *format, ...)
+int ft_printf(char *format, ...)
 {
 	int ret;
+	t_printf *st;
 
 	if (!format /*|| failed to init*/)
 		return (-1);
-	//va_start(/*???*/, format);
-	ft_display(format);
-	//va_end(/*???*/);
+	va_start(st->ap, format);
+	ft_display(st, format);
+	va_end(st->ap);
 	//ret = /*ret*/
 	//if (/*error*/)
 		ret = -1;
 	return (ret);
 }
 
-int main ()
+int main()
 {
 	char str[] = "bonjour%s wow";
 

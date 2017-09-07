@@ -6,13 +6,13 @@
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/11 02:34:27 by agautier          #+#    #+#             */
-/*   Updated: 2017/08/11 03:58:25 by agautier         ###   ########.fr       */
+/*   Updated: 2017/09/04 22:44:08 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char *ft_detect(char *str)
+char *ft_detect(char c)
 {
 	int i;
 
