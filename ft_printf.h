@@ -6,7 +6,7 @@
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/09/07 22:28:36 by agautier         ###   ########.fr       */
+/*   Updated: 2017/09/07 23:26:18 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct		s_printf
 	int				ret;
 	int				preci;
 	int				width;
+	int				error;
 	enum e_conver	conver;
 	enum e_modif	modif;
 }					t_printf;
