@@ -6,7 +6,7 @@
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 10:44:41 by agautier          #+#    #+#             */
-/*   Updated: 2017/09/05 05:51:21 by agautier         ###   ########.fr       */
+/*   Updated: 2017/09/08 10:39:26 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int ft_printf(char *format, ...)
 	int ret;
 	t_printf *st;
 
-	if (!format /*|| failed to init*/)
+	if (!format || !(struct_init(st)))
 		return (-1);
 	va_start(st->ap, format);
 	ft_display(st, format);

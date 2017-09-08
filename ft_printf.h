@@ -6,7 +6,7 @@
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/03 10:48:44 by agautier          #+#    #+#             */
-/*   Updated: 2017/09/07 23:26:18 by agautier         ###   ########.fr       */
+/*   Updated: 2017/09/08 10:44:18 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "./libft/libft.h"
 
 
@@ -67,5 +68,6 @@ typedef struct		s_printf
 int					ft_printf(char *format, ...);
 t_printf			*ft_detect(t_printf *st);
 t_printf			*ft_display(t_printf *st, const char *format);
+t_printf			*struct_init(t_printf *st);
 
 #endif
