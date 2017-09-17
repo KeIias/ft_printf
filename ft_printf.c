@@ -6,7 +6,7 @@
 /*   By: agautier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/04 10:44:41 by agautier          #+#    #+#             */
-/*   Updated: 2017/09/08 10:39:26 by agautier         ###   ########.fr       */
+/*   Updated: 2017/09/16 03:55:54 by agautier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@ int ft_printf(char *format, ...)
 	va_start(st->ap, format);
 	ft_display(st, format);
 	va_end(st->ap);
-	//ret = /*ret*/
-	//if (/*error*/)
+	//ret = ret;
+	//if (error)
 		ret = -1;
 	return (ret);
 }
 
 int main()
 {
-	char str[] = "bonjour%s wow";
+	char str[] = "bonjour%swow";
 
-	ft_printf(str);
+	int i = 0;
+	ft_printf("bonjour%swow", "lul");
 	return (0);
 }
