@@ -58,7 +58,7 @@ typedef struct		s_printf
 	va_list			ap;
 	int				i;
 	int				ret;
-	int				preci;
+	int				prec;
 	int				width;
 	int				error;
 	enum e_conver	conver;
@@ -69,5 +69,7 @@ int					ft_printf(char *format, ...);
 t_printf			*ft_detect(t_printf *st, const char *format);
 t_printf			*ft_display(t_printf *st, const char *format);
 t_printf			*struct_init(t_printf *st);
+void				ft_getflag(t_printf *st, const char *format);
+void				ft_getwidth(t_printf *st, const char *format);
 
 #endif

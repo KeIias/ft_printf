@@ -17,18 +17,19 @@ t_printf		*ft_detect(t_printf *st, const char *format)
 	while (format[st->i] && !(ft_strrchr(("sDpdDioOuUxXcC%"), format[st->i])))
 	{
 		if (ft_strrchr("#0-+", format[st->i]))
-			//flag
-		else if ((format[st->i] != "0" && ft_isidigit((int)format[st->i]))
-				|| format[st->i] == "*")
-			//width
-		else if (format[st->i] == ".")
-			//precision
+			ft_getflag(st, format);
+		else if ((format[st->i] != '0' && ft_isdigit((int)format[st->i]))
+				|| format[st->i] == '*')
+			ft_getwidth(st, format);
+		else if (format[st->i] == '.')
+			ft_getprec(st, format);
 		else if (ft_strrchr("hljz", format[st->i]))
-			//modifier
+			ft_getmod(st, format);
 		else
 			break;
 	}
 	//converter
+	++st->i;
 	return (st);
 }
 
