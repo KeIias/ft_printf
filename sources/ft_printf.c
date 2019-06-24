@@ -7,10 +7,9 @@ int		ft_printf(const char *format, ...)
 
 	if (!(pf = (t_pf*)malloc(sizeof(t_pf))))
 		return (-1);
-	pf->format = format;
 	if (format)
 	{
-		
+		init_struct(pf, format);
 	}
 	len = pf->len;
 	free(pf);

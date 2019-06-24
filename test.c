@@ -7,5 +7,6 @@ int main(int ac, char **av)
 
 	n = atoi(av[2]);
 	printf(av[1], n);
+	printf("%+5.3d");
 	return (0);
 }

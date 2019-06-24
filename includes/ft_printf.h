@@ -21,4 +21,7 @@ typedef struct		s_pf
 	int				fd;
 }					t_pf;
 
+t_pf				*init_struct(t_pf *pf, const char *format);
+void				print_text(t_pf *pf);
+
 #endif
