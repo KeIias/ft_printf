@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
+/*   Updated: 2019/06/25 16:48:21 by algautie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
@@ -6,10 +18,21 @@
 # include <stdarg.h>
 # include "../sources/libft/libft.h"
 
+enum				e_flag
+{
+	NONE,
+	H,
+	HH,
+	L,
+	LL,
+	BIG_L,
+};
+
 typedef struct		s_pf
 {
 	char			conversion;
 	int				flags;
+	enum e_flag		flag;
 	int				width;
 	int				precision;
 	int				len;
