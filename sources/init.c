@@ -4,6 +4,7 @@ t_pf *init_struct(t_pf *pf, const char *format)
 {
 	pf->format = format;
 	pf->flags = 0;
+	pf->flag = NONE;
 	pf->width = 0;
 	pf->precision = 0;
 	pf->cpy = (char*)format;

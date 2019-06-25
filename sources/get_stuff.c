@@ -6,11 +6,28 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/25 13:51:06 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/25 17:57:24 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void	get_flag(t_pf *pf)
+{
+	if (ft_cmpchars(pf->format[pf->i], "Lhl"))
+	{
+		pf->flag = pf->format[pf->i] == 'L' ? BIG_L : pf->flag;
+		pf->flag = pf->format[pf->i] == 'h' ? H : pf->flag;
+		pf->flag = pf->format[pf->i] == 'l' ? L : pf->flag;
+		(pf->i)++;
+	}
+	if (ft_cmpchars(pf->format[pf->i], "hl"))
+	{
+		pf->flag = pf->format[pf->i] == 'h' && pf->flag == H ? HH : pf->flag;
+		pf->flag = pf->format[pf->i] == 'l' && pf->flag == L ? LL : pf->flag;
+		(pf->i)++;
+	}
+}
 
 static void	get_conversion(t_pf *pf)
 {
@@ -56,5 +73,6 @@ void		get_stuff(t_pf *pf)
 {
 	get_flags(pf);
 	get_width_precision(pf);
+	get_flag(pf);
 	get_conversion(pf);
 }
