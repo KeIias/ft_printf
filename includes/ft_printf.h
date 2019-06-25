@@ -28,5 +28,7 @@ typedef struct		s_pf
 
 t_pf				*init_struct(t_pf *pf, const char *format);
 void				print_text(t_pf *pf);
+void				get_stuff(t_pf *pf);
+void				parse(t_pf *pf);
 
 #endif

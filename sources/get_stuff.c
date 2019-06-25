@@ -6,11 +6,20 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/25 12:10:49 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/25 13:51:06 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static void	get_conversion(t_pf *pf)
+{
+	if (ft_cmpchars(pf->cpy[pf->i], "cspdiouxXf%"))
+	{
+		pf->conversion = pf->format[pf->i];
+		(pf->i)++;
+	}
+}
 
 static void	get_width_precision(t_pf *pf)
 {
@@ -47,4 +56,5 @@ void		get_stuff(t_pf *pf)
 {
 	get_flags(pf);
 	get_width_precision(pf);
+	get_conversion(pf);
 }
