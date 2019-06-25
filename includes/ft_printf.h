@@ -9,8 +9,8 @@
 typedef struct		s_pf
 {
 	char			conversion;
-	char			flag[2];
-	int				field_width;
+	int				flags;
+	int				width;
 	int				precision;
 	int				len;
 	size_t			i;
@@ -20,6 +20,11 @@ typedef struct		s_pf
 	char			*cpy;
 	int				fd;
 }					t_pf;
+
+# define F_PLUS 1
+# define F_MINUS 2
+# define F_HASH 4
+# define F_ZERO 8
 
 t_pf				*init_struct(t_pf *pf, const char *format);
 void				print_text(t_pf *pf);

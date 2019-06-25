@@ -8,8 +8,10 @@ void	parse(t_pf *pf)
 			print_text(pf);
 		if (pf->format[pf->i] == '%')
 		{
-			get_preflag(pf);
-		
+			get_preflags(pf);
+			get_width(pf);
+			get_precision(pf);
+			get_modifier(pf);
 		}
 	}
 }
