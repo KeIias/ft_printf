@@ -3,7 +3,10 @@
 t_pf *init_struct(t_pf *pf, const char *format)
 {
 	pf->format = format;
-	pf->flags = 0;
+	pf->flag_plus = 0;
+	pf->flag_minus = 0;
+	pf->flag_zero = 0;
+	pf->flag_hash = 0;
 	pf->flag = NONE;
 	pf->width = 0;
 	pf->precision = 0;

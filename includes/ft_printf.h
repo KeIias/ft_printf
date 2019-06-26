@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/25 16:48:21 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/25 18:39:48 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ enum				e_flag
 typedef struct		s_pf
 {
 	char			conversion;
-	int				flags;
 	enum e_flag		flag;
 	int				width;
 	int				precision;
@@ -42,6 +41,10 @@ typedef struct		s_pf
 	const char		*format;
 	char			*cpy;
 	int				fd;
+	int				flag_plus;
+	int				flag_minus;
+	int				flag_hash;
+	int				flag_zero;
 }					t_pf;
 
 # define F_PLUS 1

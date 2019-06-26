@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/25 17:57:24 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/25 18:39:49 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ static void	get_flags(t_pf *pf)
 {
 	while (ft_cmpchars(pf->format[++(pf->i)], "+-#0"))
 	{
-		pf->flags = pf->format[pf->i] == '+' ? pf->flags + F_PLUS : pf->flags;
-		pf->flags = pf->format[pf->i] == '-' ? pf->flags + F_MINUS : pf->flags;
-		pf->flags = pf->format[pf->i] == '#' ? pf->flags + F_HASH : pf->flags;
-		pf->flags = pf->format[pf->i] == '0' ? pf->flags + F_ZERO : pf->flags;
+		pf->flag_plus = pf->format[pf->i] == '+' ? 1 : pf->flag_plus;
+		pf->flag_minus = pf->format[pf->i] == '-' ? 1 : pf->flag_minus;
+		pf->flag_hash = pf->format[pf->i] == '#' ? 1 : pf->flag_hash;
+		pf->flag_zero = pf->format[pf->i] == '0' ? 1 : pf->flag_zero;
 	}
 }
 
