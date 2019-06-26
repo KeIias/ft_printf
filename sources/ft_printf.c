@@ -10,7 +10,9 @@ int		ft_printf(const char *format, ...)
 	if (format)
 	{
 		init_struct(pf, format);
+		va_start(pf->args, format);
 		parse(pf);
+		va_end(pf->args);
 	}
 	len = pf->len;
 	free(pf);
