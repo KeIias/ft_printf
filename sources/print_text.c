@@ -2,8 +2,10 @@
 
 void print_text(t_pf *pf)
 {
-	ft_putstr("\n123\n");
-	ft_putchar(pf->format[pf->i]);
-	(pf->len)++;
-	(pf->i)++;
+	int len;
+
+	len = ft_strcdlen(pf->cpy, '%', pf->i);
+	write(1, pf->format + pf->i, len);
+	pf->len += len;
+	pf->i += len;
 }

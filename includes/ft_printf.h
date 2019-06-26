@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/25 18:39:48 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/26 10:43:43 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct		s_pf
 # define F_MINUS 2
 # define F_HASH 4
 # define F_ZERO 8
+
+# define MAX_RANGE 2147483647
 
 t_pf				*init_struct(t_pf *pf, const char *format);
 void				print_text(t_pf *pf);

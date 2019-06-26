@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	dprintf(1, "precision = %d\n", pf->precision);
 	dprintf(1, "flag = %d\n", pf->flag);
 	dprintf(1, "conversion = %c\n", pf->conversion);
+	dprintf(1, "len = %d\n", pf->len);
 	dprintf(1, "######################\n");
-	printf("%++++0d", 5);
 	return (0);
 }

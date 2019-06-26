@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/25 18:39:49 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/26 11:09:22 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ static void	get_conversion(t_pf *pf)
 
 static void	get_width_precision(t_pf *pf)
 {
+	long tmp;
+
 	if (ft_isdigit(pf->format[pf->i]))
 	{
-		pf->width = ft_isolate_number(pf->cpy, pf->i);
+		tmp = ft_isolate_number(pf->cpy, pf->i);
+		pf->width = tmp > MAX_RANGE ? 0 : tmp;
 		while (ft_isdigit(pf->format[pf->i]))
 			++(pf->i);
 	}
@@ -51,7 +54,8 @@ static void	get_width_precision(t_pf *pf)
 		++(pf->i);
 		if (ft_isdigit(pf->format[pf->i]))
 		{
-			pf->precision = ft_isolate_number(pf->cpy, pf->i);
+			tmp = ft_isolate_number(pf->cpy, pf->i);
+			pf->precision = tmp > MAX_RANGE ? 0 : tmp;
 			while (ft_isdigit(pf->format[pf->i]))
 				++(pf->i);
 		}

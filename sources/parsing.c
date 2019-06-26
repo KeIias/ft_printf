@@ -4,9 +4,9 @@ void	parse(t_pf *pf)
 {
 	while (pf->format[pf->i])
 	{
+		print_text(pf);
 		while (pf->format[pf->i] != '%' && pf->format[pf->i])
 			pf->i++;
-//			print_text(pf);
 		if (pf->format[pf->i] == '%')
 			get_stuff(pf);
 	}

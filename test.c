@@ -7,6 +7,6 @@ int main(int ac, char **av)
 
 	n = atoi(av[2]);
 	printf(av[1], n);
-	printf("%+5.3d");
+	printf("%2147483647.4d", 12);
 	return (0);
 }
