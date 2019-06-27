@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_c.c                                           :+:      :+:    :+:   */
+/*   conv_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/26 16:05:01 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/27 15:21:01 by algautie         ###   ########.fr       */
+/*   Created: 2019/06/27 15:11:21 by algautie          #+#    #+#             */
+/*   Updated: 2019/06/27 15:30:22 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	conv_c(t_pf *pf)
+void	conv_s(t_pf *pf)
 {
-	char arg;
+	char	*arg;
+	int		len;
 
-	arg = (char)va_arg(pf->args, int);
+	arg = (char*)va_arg(pf->args, char*);
 	if (arg)
-		pf->len += 1;
+		len = ft_strlen((const char*)arg);
 	else
 	{
 		pf->error = 1;
 		return ;
 	}
-	if (pf->width > 1)
+	pf->len += len;
+	if (pf->width > len)
 	{
 		pf->len += pf->width;
 		if (pf->preflag_minus)
-			write(1, &arg, 1);
-		while (--pf->width)
+			write(1, arg, len);
+		while (pf->width-- > len)
 			write(1, " ", 1);
 	}
 	if (!pf->preflag_minus)
-		write(1, &arg, 1);
+		write(1, arg, len);
 }
