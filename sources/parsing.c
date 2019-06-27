@@ -9,5 +9,7 @@ void	parse(t_pf *pf)
 			pf->i++;
 		if (pf->format[pf->i] == '%')
 			get_stuff(pf);
+		print_stuff(pf);
+		reinit_struct(pf);
 	}
 }

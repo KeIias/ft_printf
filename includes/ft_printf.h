@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/26 10:43:43 by algautie         ###   ########.fr       */
+/*   Updated: 2019/06/27 15:10:25 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ typedef struct		s_pf
 	va_list			args;
 	const char		*format;
 	char			*cpy;
+	int				error;
 	int				fd;
-	int				flag_plus;
-	int				flag_minus;
-	int				flag_hash;
-	int				flag_zero;
+	int				preflag_plus;
+	int				preflag_minus;
+	int				preflag_hash;
+	int				preflag_zero;
+	int				preflag_space;
 }					t_pf;
 
 # define F_PLUS 1
@@ -54,9 +56,14 @@ typedef struct		s_pf
 
 # define MAX_RANGE 2147483647
 
+int					ft_printf(const char *format, ...);
 t_pf				*init_struct(t_pf *pf, const char *format);
 void				print_text(t_pf *pf);
 void				get_stuff(t_pf *pf);
 void				parse(t_pf *pf);
+void				reinit_struct(t_pf *pf);
+void				print_stuff(t_pf *pf);
+void				conv_c(t_pf *pf);
+void				conv_s(t_pf *pf);
 
 #endif
