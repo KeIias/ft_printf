@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 15:11:21 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/27 15:30:22 by algautie         ###   ########.fr       */
+/*   Updated: 2019/07/03 11:46:55 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,18 @@ void	conv_s(t_pf *pf)
 	if (arg)
 		len = ft_strlen((const char*)arg);
 	else
-	{
 		pf->error = 1;
+	if (pf->error == 1)
 		return ;
-	}
+	if (pf->precision == -1)
+		pf->precision = len;
+	len = (len > pf->precision ? pf->precision : len);
 	pf->len += len;
-	if (pf->width > len)
-	{
-		pf->len += pf->width;
-		if (pf->preflag_minus)
-			write(1, arg, len);
-		while (pf->width-- > len)
-			write(1, " ", 1);
-	}
+	pf->len += pf->width;
+	if (pf->preflag_minus)
+		write(1, arg, len > pf->precision ? pf->precision : len);
+	while (pf->width-- > len)
+		write(1, " ", 1);
 	if (!pf->preflag_minus)
-		write(1, arg, len);
+		write(1, arg, len > pf->precision ? pf->precision : len);
 }

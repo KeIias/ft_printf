@@ -10,6 +10,6 @@ int main(int ac, char **av)
 	char *str = strdup("qwer");
 	//n = atoi(av[2]);
 	//printf(av[1], n);
-	printf("% s", str);
+	printf("%-1s", str);
 	return (0);
 }
