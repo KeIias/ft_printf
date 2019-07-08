@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/27 14:02:55 by algautie         ###   ########.fr       */
+/*   Updated: 2019/07/08 16:25:18 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,13 @@ static void	get_width_precision(t_pf *pf)
 
 static void	get_flags(t_pf *pf)
 {
-	while (ft_cmpchars(pf->format[++(pf->i)], "+-#0"))
+	while (ft_cmpchars(pf->format[++(pf->i)], "+-#0 "))
 	{
 		pf->preflag_plus = pf->format[pf->i] == '+' ? 1 : pf->preflag_plus;
 		pf->preflag_minus = pf->format[pf->i] == '-' ? 1 : pf->preflag_minus;
 		pf->preflag_hash = pf->format[pf->i] == '#' ? 1 : pf->preflag_hash;
 		pf->preflag_zero = pf->format[pf->i] == '0' ? 1 : pf->preflag_zero;
+		pf->preflag_space = pf->format[pf->i] == ' ' ? 1 : pf->preflag_space;
 	}
 }
 

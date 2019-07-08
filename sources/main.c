@@ -7,15 +7,19 @@ int main(int ac, char **av)
 	char c2 = 'a';
 	char *str1 = "bonjour";
 	char *str2 = "amis";
+	int d1 = 12;
+	int d2 = -34;
 
 	(void)ac;
 	(void)c1;
 	(void)c2;
 	(void)str1;
 	(void)str2;
-	ft_printf(av[1], str1);
+	(void)d1;
+	(void)d2;
+	ft_printf(av[1], d2);
 	dprintf(1, "\n");
-	dprintf(1, av[1], str1);
+	dprintf(1, av[1], d2);
 	dprintf(1, "\n");
 /*	dprintf(1, "### STRUCT CONTENT ###\n");
 	dprintf(1, "+ = %d; - = %d; # = %d; zero = %d\n", pf->preflag_plus, pf->preflag_minus, pf->preflag_hash, pf->preflag_zero);

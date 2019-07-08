@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/27 15:20:01 by algautie         ###   ########.fr       */
+/*   Updated: 2019/07/08 14:07:40 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void				reinit_struct(t_pf *pf);
 void				print_stuff(t_pf *pf);
 void				conv_c(t_pf *pf);
 void				conv_s(t_pf *pf);
+void				conv_d(t_pf *pf);
 
 #endif
