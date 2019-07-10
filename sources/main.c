@@ -17,6 +17,10 @@ int main(int ac, char **av)
 	(void)str2;
 	(void)d1;
 	(void)d2;
+	ft_printf(av[1], d1);
+	dprintf(1, "\n");
+	dprintf(1, av[1], d1);
+	dprintf(1, "\n");
 	ft_printf(av[1], d2);
 	dprintf(1, "\n");
 	dprintf(1, av[1], d2);
