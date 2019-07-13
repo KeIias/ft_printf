@@ -73,7 +73,7 @@ static void			print_precision(t_pf *pf, char *str)
 	print_sign(pf, str);
 	if (ft_strchr(str, '-') != NULL)
 		len--;
-	if (pf->preflag_space && (len == 0 || str[0] != '-' || precision > len))
+	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
 	{
 		write(1, " ", 1);
 		pf->len++;
