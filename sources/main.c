@@ -7,7 +7,7 @@ int main(int ac, char **av)
 	char c2 = 'a';
 	char *str1 = "bonjour";
 	char *str2 = "amis";
-	int d1 = 12;
+	int d1 = 0;
 	int d2 = -34;
 
 	(void)ac;
@@ -20,10 +20,6 @@ int main(int ac, char **av)
 	ft_printf(av[1], d1);
 	dprintf(1, "\n");
 	dprintf(1, av[1], d1);
-	dprintf(1, "\n");
-	ft_printf(av[1], d2);
-	dprintf(1, "\n");
-	dprintf(1, av[1], d2);
 	dprintf(1, "\n");
 /*	dprintf(1, "### STRUCT CONTENT ###\n");
 	dprintf(1, "+ = %d; - = %d; # = %d; zero = %d\n", pf->preflag_plus, pf->preflag_minus, pf->preflag_hash, pf->preflag_zero);

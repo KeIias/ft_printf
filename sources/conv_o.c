@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_d.c                                           :+:      :+:    :+:   */
+/*   conv_o.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/03 13:15:55 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/21 12:32:52 by algautie         ###   ########.fr       */
+/*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
+/*   Updated: 2019/08/21 14:23:12 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,32 +29,14 @@ static long long	get_arg(t_pf *pf)
 	return (arg);
 }
 
-static void			print_sign(t_pf *pf, char *str)
-{
-	if (ft_strchr(str, '-') != NULL)
-	{
-		write(1, "-", 1);
-		pf->len++;
-	}
-	if (pf->preflag_plus && ft_strchr(str, '-') == NULL)
-	{
-		write(1, "+", 1);
-		pf->len++;
-	}
-}
-
 static void			print_width(t_pf *pf, char *str)
 {
-	char c;
-	int len;
+	char	c;
+	int		len;
 
 	len = (int)ft_strlen(str);
-	if (ft_strchr(str, '-') != NULL)
-		len--;
-	if (pf->preflag_plus || ft_strchr(str, '-') != NULL || pf->preflag_space)
-		pf->width--;
 	c = pf->preflag_zero ? '0' : ' ';
-	while (pf->width > ft_biggest(pf->precision, len))
+	while (pf->width > ft_biggest(pf->precision, len + pf->preflag_hash))
 	{
 		write(1, &c, 1);
 		pf->width--;
@@ -70,12 +52,11 @@ static void			print_precision(t_pf *pf, char *str)
 	precision = pf->precision;
 	len = ft_strlen(str);
 	pf->len += len;
-	print_sign(pf, str);
-	if (ft_strchr(str, '-') != NULL)
-		len--;
-	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
+	if (pf->preflag_hash \
+		&& !(pf->width > ft_biggest(pf->precision, len) && pf->preflag_zero))
 	{
-		write(1, " ", 1);
+		write(1, "0", 1);
+		precision--;
 		pf->len++;
 	}
 	while (precision > len)
@@ -84,17 +65,19 @@ static void			print_precision(t_pf *pf, char *str)
 		pf->len++;
 		precision--;
 	}
-	str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
+	ft_putstr(str);
 }
 
-void				conv_d(t_pf *pf)
+void				conv_o(t_pf *pf)
 {
 	char *str;
 
-	if (!(str = ft_lltoa_base(get_arg(pf), 10)))
+	if (!(str = ft_lltoa_base(get_arg(pf), 8)))
 		pf->error = 1;
 	if (pf->error)
 		return ;
+	if (str[0] == '0')
+		pf->preflag_hash = 0;
 	pf->preflag_minus == 1 ? print_precision(pf, str) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_precision(pf, str) : print_width(pf, str);
 }
