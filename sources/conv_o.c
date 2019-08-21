@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/21 14:23:12 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/21 16:07:44 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void				conv_o(t_pf *pf)
 {
 	char *str;
 
-	if (!(str = ft_lltoa_base(get_arg(pf), 8)))
+	if (!(str = ft_ulltoa_base(get_arg(pf), 8)))
 		pf->error = 1;
 	if (pf->error)
 		return ;
