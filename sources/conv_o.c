@@ -6,26 +6,26 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/21 16:07:44 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/21 16:16:39 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static long long	get_arg(t_pf *pf)
+static unsigned long long	get_arg(t_pf *pf)
 {
-	long long arg;
+	unsigned long long arg;
 
 	if (pf->flag == NONE)
-		arg = va_arg(pf->args, int);
+		arg = va_arg(pf->args, unsigned int);
 	if (pf->flag == H)
-		arg = (char)va_arg(pf->args, int);
+		arg = (unsigned char)va_arg(pf->args, unsigned int);
 	if (pf->flag == HH)
-		arg = (short)va_arg(pf->args, int);
+		arg = (unsigned short)va_arg(pf->args, unsigned int);
 	if (pf->flag == L)
-		arg = va_arg(pf->args, long);
+		arg = va_arg(pf->args, unsigned long);
 	if (pf->flag == LL)
-		arg = va_arg(pf->args, long long);
+		arg = va_arg(pf->args, unsigned long long);
 	return (arg);
 }
 

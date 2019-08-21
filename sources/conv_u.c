@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 15:52:28 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/21 16:07:31 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/21 16:14:52 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,30 +29,12 @@ static unsigned long long	get_arg(t_pf *pf)
 	return (arg);
 }
 
-static void			print_sign(t_pf *pf, char *str)
-{
-	if (ft_strchr(str, '-') != NULL)
-	{
-		write(1, "-", 1);
-		pf->len++;
-	}
-	if (pf->preflag_plus && ft_strchr(str, '-') == NULL)
-	{
-		write(1, "+", 1);
-		pf->len++;
-	}
-}
-
 static void			print_width(t_pf *pf, char *str)
 {
 	char c;
 	int len;
 
 	len = (int)ft_strlen(str);
-	if (ft_strchr(str, '-') != NULL)
-		len--;
-	if (pf->preflag_plus || ft_strchr(str, '-') != NULL || pf->preflag_space)
-		pf->width--;
 	c = pf->preflag_zero ? '0' : ' ';
 	while (pf->width > ft_biggest(pf->precision, len))
 	{
@@ -70,21 +52,13 @@ static void			print_precision(t_pf *pf, char *str)
 	precision = pf->precision;
 	len = ft_strlen(str);
 	pf->len += len;
-	print_sign(pf, str);
-	if (ft_strchr(str, '-') != NULL)
-		len--;
-	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
-	{
-		write(1, " ", 1);
-		pf->len++;
-	}
 	while (precision > len)
 	{
 		write(1, "0", 1);
 		pf->len++;
 		precision--;
 	}
-	str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
+	ft_putstr(str);
 }
 
 void				conv_u(t_pf *pf)
