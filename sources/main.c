@@ -7,7 +7,7 @@ int main(int ac, char **av)
 	char c2 = 'a';
 	char *str1 = "bonjour";
 	char *str2 = "amis";
-	int d1 = 0;
+	int d1 = 15;
 	int d2 = -34;
 
 	(void)ac;
