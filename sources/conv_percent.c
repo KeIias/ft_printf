@@ -2,6 +2,7 @@
 
 void	conv_percent(t_pf *pf)
 {
+	pf->len++;
 	if (pf->width > 1)
 	{
 		pf->len += pf->width;
