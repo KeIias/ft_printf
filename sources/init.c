@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:47:15 by algautie          #+#    #+#             */
-/*   Updated: 2019/07/08 15:11:08 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/28 14:29:22 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_pf	*init_struct(t_pf *pf, const char *format)
 	pf->preflag_space = 0;
 	pf->flag = NONE;
 	pf->width = 0;
-	pf->precision = 1;
+	pf->precision = -1;
 	pf->error = 0;
 	pf->cpy = (char*)format;
 	pf->len = 0;
@@ -41,5 +41,5 @@ void	reinit_struct(t_pf *pf)
 	pf->preflag_space = 0;
 	pf->flag = NONE;
 	pf->width = 0;
-	pf->precision = 1;
+	pf->precision = -1;
 }

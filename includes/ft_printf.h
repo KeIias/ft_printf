@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/21 16:15:25 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/28 13:04:03 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ void				conv_d(t_pf *pf);
 void				conv_o(t_pf *pf);
 void				conv_x(t_pf *pf);
 void				conv_u(t_pf *pf);
+void				conv_p(t_pf *pf);
+void				conv_percent(t_pf *pf);
 
 #endif

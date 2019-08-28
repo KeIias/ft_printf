@@ -5,12 +5,12 @@
 int main(int ac, char **av)
 {
 	int n;
-	float m = 12.21;
+	double m = 12.21;
 
+	n = 10;
 	char *str = strdup("qwer");
 	//n = atoi(av[2]);
 	//printf(av[1], n);
-	printf("%x", -16);
-	
+	printf("%#.3X", n);
 	return (0);
 }

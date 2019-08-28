@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:43:07 by algautie          #+#    #+#             */
-/*   Updated: 2019/07/03 11:43:11 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/28 14:39:48 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ void	parse(t_pf *pf)
 		while (pf->format[pf->i] != '%' && pf->format[pf->i])
 			pf->i++;
 		if (pf->format[pf->i] == '%')
+		{
 			get_stuff(pf);
-		print_stuff(pf);
-		reinit_struct(pf);
+			print_stuff(pf);
+			reinit_struct(pf);
+		}
 	}
 }
