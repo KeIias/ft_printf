@@ -1,4 +1,4 @@
-#include "../includes/ft_printf.h"
+#include "includes/ft_printf.h"
 #include <stdio.h>
 
 int main(int ac, char **av)
@@ -9,6 +9,7 @@ int main(int ac, char **av)
 	char *str2 = "amis";
 	int d1 = 15;
 	int d2 = -34;
+	long double f1 = -10.12345677892;
 
 	(void)ac;
 	(void)c1;
@@ -17,9 +18,9 @@ int main(int ac, char **av)
 	(void)str2;
 	(void)d1;
 	(void)d2;
-	ft_printf(av[1], d1);
+	ft_printf(av[1], f1);
 	dprintf(1, "\n");
-	dprintf(1, av[1], d1);
+	dprintf(1, av[1], f1);
 	dprintf(1, "\n");
 /*	dprintf(1, "### STRUCT CONTENT ###\n");
 	dprintf(1, "+ = %d; - = %d; # = %d; zero = %d\n", pf->preflag_plus, pf->preflag_minus, pf->preflag_hash, pf->preflag_zero);

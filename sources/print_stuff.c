@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 14:11:52 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/28 13:04:34 by algautie         ###   ########.fr       */
+/*   Updated: 2019/08/29 15:00:39 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	print_stuff(t_pf *pf)
 	pf->conversion == 'o' ? conv_o(pf) : 0;
 	pf->conversion == 'u' ? conv_u(pf) : 0;
 	pf->conversion == 'p' ? conv_p(pf) : 0;
+	pf->conversion == 'f' ? conv_f(pf) : 0;
 	pf->conversion == '%' ? conv_percent(pf) : 0;
 	pf->conversion == 'd' || pf->conversion == 'i' ? conv_d(pf) : 0;
 	pf->conversion == 'x' || pf->conversion == 'X' ? conv_x(pf) : 0;
