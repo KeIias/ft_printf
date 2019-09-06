@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/29 17:14:29 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/06 13:26:07 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,18 @@ static void			print_num(t_pf *pf, char *str, long double nbr)
 		pf->len++;
 	}
 	str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
-	print_fractional_part(pf, nbr);
+	if (pf->preflag_hash || pf->precision > 0)
+	{
+		write(1, ".", 1);
+		pf->len++;
+	}
 }
 
 void				conv_f(t_pf *pf)
 {
 	long double	nbr;
 	char		*str;
+	char		*fractional_part;
 	long long	int_part;
 
 	nbr = get_arg(pf);
@@ -91,7 +96,15 @@ void				conv_f(t_pf *pf)
 		return ;
 	if (pf->precision < 0)
 		pf->precision = 6;
-	nbr -= int_part;
-	pf->preflag_minus == 1 ? print_num(pf, str, nbr) : print_width(pf, str);
-	pf->preflag_minus == 0 ? print_num(pf, str, nbr) : print_width(pf, str);
+	fractional_part = get_fractional_part(pf, nbr - (long long)nbr);
+	int_part = round_nbr(pf, fractional_part, nbr, int_part);
+	if (!(str = ft_lltoa_base(int_part, 10)))
+		pf->error = 1;
+	if (pf->error)
+		return ;
+	ft_putstr(str);
+	ft_putchar('.');
+	ft_putstr(fractional_part);
+	//pf->preflag_minus == 1 ? print_num(pf,str, nbr) : print_width(pf, str);
+	//pf->preflag_minus == 0 ? print_num(pf, str, nbr) : print_width(pf, str);
 }
