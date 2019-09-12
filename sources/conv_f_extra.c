@@ -6,17 +6,11 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:54:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/06 12:19:41 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/12 16:03:50 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-char bank_round(char nbr, char *str, int pos)
-{
-	char c = 0;
-	return (c);
-}
 
 long long	round_nbr(t_pf *pf, char *str, long double nbr, long long int_part)
 {

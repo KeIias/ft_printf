@@ -9,7 +9,7 @@ int main(int ac, char **av)
 	char *str2 = "amis";
 	int d1 = 15;
 	int d2 = -34;
-	double f1 = 9.99;
+	double f1 = 9.0095;
 
 	(void)ac;
 	(void)c1;
