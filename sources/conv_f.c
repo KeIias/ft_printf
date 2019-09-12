@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/06 13:26:07 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/12 16:54:28 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,15 @@ void				conv_f(t_pf *pf)
 
 	nbr = get_arg(pf);
 	int_part = (long long)nbr;
+	fractional_part = NULL;
 	if (!(str = ft_lltoa_base(int_part, 10)))
 		pf->error = 1;
 	if (pf->error)
 		return ;
 	if (pf->precision < 0)
 		pf->precision = 6;
-	fractional_part = get_fractional_part(pf, nbr - (long long)nbr);
+	if (pf->precision != 0)
+		fractional_part = get_fractional_part(pf, nbr - (long long)nbr);
 	int_part = round_nbr(pf, fractional_part, nbr, int_part);
 	if (!(str = ft_lltoa_base(int_part, 10)))
 		pf->error = 1;
@@ -104,7 +106,10 @@ void				conv_f(t_pf *pf)
 		return ;
 	ft_putstr(str);
 	ft_putchar('.');
-	ft_putstr(fractional_part);
+	if (fractional_part)
+		ft_putstr(fractional_part);
+	if (fractional_part)
+		free(fractional_part);
 	//pf->preflag_minus == 1 ? print_num(pf,str, nbr) : print_width(pf, str);
 	//pf->preflag_minus == 0 ? print_num(pf, str, nbr) : print_width(pf, str);
 }

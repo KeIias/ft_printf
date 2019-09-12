@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:54:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/12 16:03:50 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/12 16:51:14 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ long long	round_nbr(t_pf *pf, char *str, long double nbr, long long int_part)
 	int		i;
 	char	beg;
 
+	if (!str)
+		return (int_part);
 	i = ft_strlen(str) - 2;
 	beg = str[0];
 	nbr *= 10;
