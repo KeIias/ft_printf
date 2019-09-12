@@ -12,6 +12,12 @@
 
 #include "../includes/ft_printf.h"
 
+char bank_round(char nbr, char *str, int pos)
+{
+	char c = 0;
+	return (c);
+}
+
 long long	round_nbr(t_pf *pf, char *str, long double nbr, long long int_part)
 {
 	int		i;
