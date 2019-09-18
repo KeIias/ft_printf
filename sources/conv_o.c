@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 14:55:26 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:31:40 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,6 @@ void						conv_o(t_pf *pf)
 		pf->preflag_hash = 0;
 	pf->preflag_minus == 1 ? print_precision(pf, str) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_precision(pf, str) : print_width(pf, str);
+	if (str)
+		free(str);
 }

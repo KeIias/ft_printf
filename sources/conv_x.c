@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 14:21:06 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 14:57:07 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:33:25 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,6 @@ void						conv_x(t_pf *pf)
 			str[i] = ft_tolower(str[i]);
 	pf->preflag_minus == 1 ? print_precision(pf, str) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_precision(pf, str) : print_width(pf, str);
+	if (str)
+		free(str);
 }

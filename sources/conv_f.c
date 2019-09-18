@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:30:25 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:53:42 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 static long double	get_arg(t_pf *pf)
 {
-	double arg;
+	double	arg;
+	char	*str;
 
 	if (pf->flag == NONE || pf->flag == L)
 		arg = va_arg(pf->args, double);
 	if (pf->flag == BIG_L)
 		arg = va_arg(pf->args, long double);
+	if (!(str = ft_lltoa_base((long long)arg, 10)))
+		pf->error = 1;
+	if (str)
+		free(str);
 	return (arg);
 }
 
@@ -48,6 +53,7 @@ static void			print_width(t_pf *pf, char *str)
 	if (pf->preflag_plus || ft_strchr(str, '-') != NULL || pf->preflag_space)
 		pf->width--;
 	c = pf->preflag_zero ? '0' : ' ';
+	pf->preflag_zero ? print_sign(pf, str) : 0;
 	while (pf->width > ft_biggest(pf->precision, len))
 	{
 		write(1, &c, 1);
@@ -65,7 +71,7 @@ static void			print_num(t_pf *pf, char *str, char *frac)
 	precision = pf->precision;
 	len = ft_strlen(str) + pf->precision;
 	pf->len += len;
-	print_sign(pf, str);
+	pf->preflag_zero ? 0 : print_sign(pf, str);
 	if (ft_strchr(str, '-') != NULL)
 		len--;
 	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
@@ -93,21 +99,23 @@ void				conv_f(t_pf *pf)
 	long long	int_part;
 
 	nbr = get_arg(pf);
-	int_part = (long long)nbr;
 	frac = NULL;
-	if (!(str = ft_lltoa_base(int_part, 10)))
-		pf->error = 1;
 	if (pf->error)
 		return ;
-	if (pf->precision < 0)
-		pf->precision = 6;
+	pf->precision = (pf->precision < 0 ? 6 : pf->precision);
 	if (pf->precision != 0 && pf->is_prec != 0)
 		frac = get_fractional_part(pf, nbr - (long long)nbr);
-	int_part = round_nbr(pf, frac, nbr, int_part);
+	int_part = round_nbr(pf, frac, nbr, (long long)nbr);
 	if (!(str = ft_lltoa_base(int_part, 10)))
 		pf->error = 1;
 	if (pf->error)
+	{
+		if (frac)
+			free(frac);
 		return ;
+	}
 	pf->preflag_minus == 1 ? print_num(pf, str, frac) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_num(pf, str, frac) : print_width(pf, str);
+	if (str)
+		free(str);
 }

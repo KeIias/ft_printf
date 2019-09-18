@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 12:09:39 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:11:48 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:32:29 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ void						conv_p(t_pf *pf)
 	}
 	ft_putstr(str);
 	pf->len += ft_strlen(str);
+	if (str)
+		free(str);
 }

@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 13:15:55 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 14:52:15 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 15:51:14 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void			print_width(t_pf *pf, char *str)
 	if (pf->preflag_plus || ft_strchr(str, '-') != NULL || pf->preflag_space)
 		pf->width--;
 	c = pf->preflag_zero ? '0' : ' ';
+	pf->preflag_zero ? print_sign(pf, str) : 0;
 	while (pf->width > ft_biggest(pf->precision, len))
 	{
 		write(1, &c, 1);
@@ -70,7 +71,7 @@ static void			print_precision(t_pf *pf, char *str)
 	precision = pf->precision;
 	len = ft_strlen(str);
 	pf->len += len;
-	print_sign(pf, str);
+	pf->preflag_zero ? 0 : print_sign(pf, str);
 	if (ft_strchr(str, '-') != NULL)
 		len--;
 	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
@@ -97,4 +98,6 @@ void				conv_d(t_pf *pf)
 		return ;
 	pf->preflag_minus == 1 ? print_precision(pf, str) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_precision(pf, str) : print_width(pf, str);
+	if (str)
+		free(str);
 }
