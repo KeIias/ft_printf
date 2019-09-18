@@ -42,7 +42,7 @@ static void			print_width(t_pf *pf, char *str)
 	char c;
 	int len;
 
-	len = (int)ft_strlen(str);
+	len = (int)ft_strlen(str) + pf->precision + (pf->precision > 0 ? 1 : 0);
 	if (ft_strchr(str, '-') != NULL)
 		len--;
 	if (pf->preflag_plus || ft_strchr(str, '-') != NULL || pf->preflag_space)
@@ -56,14 +56,14 @@ static void			print_width(t_pf *pf, char *str)
 	}
 }
 
-static void			print_num(t_pf *pf, char *str, long double nbr)
+static void			print_num(t_pf *pf, char *str, char *frac)
 {
 	int		len;
 	int		precision;
 	char	c;
 
 	precision = pf->precision;
-	len = ft_strlen(str);
+	len = ft_strlen(str) + pf->precision + (pf->precision > 0 ? 1 : 0);
 	pf->len += len;
 	print_sign(pf, str);
 	if (ft_strchr(str, '-') != NULL)
@@ -79,18 +79,22 @@ static void			print_num(t_pf *pf, char *str, long double nbr)
 		write(1, ".", 1);
 		pf->len++;
 	}
+	if (frac)
+		ft_putstr(frac);
+	if (frac)
+		free(frac);
 }
 
 void				conv_f(t_pf *pf)
 {
 	long double	nbr;
 	char		*str;
-	char		*fractional_part;
+	char		*frac;
 	long long	int_part;
 
 	nbr = get_arg(pf);
 	int_part = (long long)nbr;
-	fractional_part = NULL;
+	frac = NULL;
 	if (!(str = ft_lltoa_base(int_part, 10)))
 		pf->error = 1;
 	if (pf->error)
@@ -98,18 +102,14 @@ void				conv_f(t_pf *pf)
 	if (pf->precision < 0)
 		pf->precision = 6;
 	if (pf->precision != 0)
-		fractional_part = get_fractional_part(pf, nbr - (long long)nbr);
-	int_part = round_nbr(pf, fractional_part, nbr, int_part);
+		frac = get_fractional_part(pf, nbr - (long long)nbr);
+	int_part = round_nbr(pf, frac, nbr, int_part);
 	if (!(str = ft_lltoa_base(int_part, 10)))
 		pf->error = 1;
 	if (pf->error)
 		return ;
 	ft_putstr(str);
 	ft_putchar('.');
-	if (fractional_part)
-		ft_putstr(fractional_part);
-	if (fractional_part)
-		free(fractional_part);
-	//pf->preflag_minus == 1 ? print_num(pf,str, nbr) : print_width(pf, str);
-	//pf->preflag_minus == 0 ? print_num(pf, str, nbr) : print_width(pf, str);
+	pf->preflag_minus == 1 ? print_num(pf,str, frac) : print_width(pf, str);
+	pf->preflag_minus == 0 ? print_num(pf, str, frac) : print_width(pf, str);
 }
