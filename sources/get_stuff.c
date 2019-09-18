@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/07/08 16:25:18 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 11:54:50 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,10 @@ static void	get_width_precision(t_pf *pf)
 			tmp = ft_isolate_number(pf->cpy, pf->i);
 			pf->precision = tmp > MAX_RANGE ? 0 : tmp;
 			while (ft_isdigit(pf->format[pf->i]))
-				++(pf->i);
+				 ++(pf->i);
 		}
+		else
+			pf->is_prec = 0;
 	}
 }
 

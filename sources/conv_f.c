@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/12 16:54:28 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 11:53:23 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void			print_num(t_pf *pf, char *str, char *frac)
 		pf->len++;
 	}
 	str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
-	if (pf->preflag_hash || pf->precision > 0)
+	if ((pf->preflag_hash || pf->precision > 0) && pf->is_prec)
 	{
 		write(1, ".", 1);
 		pf->len++;
@@ -101,15 +101,13 @@ void				conv_f(t_pf *pf)
 		return ;
 	if (pf->precision < 0)
 		pf->precision = 6;
-	if (pf->precision != 0)
+	if (pf->precision != 0 && pf->is_prec != 0)
 		frac = get_fractional_part(pf, nbr - (long long)nbr);
 	int_part = round_nbr(pf, frac, nbr, int_part);
 	if (!(str = ft_lltoa_base(int_part, 10)))
 		pf->error = 1;
 	if (pf->error)
 		return ;
-	ft_putstr(str);
-	ft_putchar('.');
 	pf->preflag_minus == 1 ? print_num(pf,str, frac) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_num(pf, str, frac) : print_width(pf, str);
 }

@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 11:23:27 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 11:49:40 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct		s_pf
 	enum e_flag		flag;
 	int				width;
 	int				precision;
+	int				is_prec;
 	int				len;
 	size_t			i;
 	size_t			conv_pos;
