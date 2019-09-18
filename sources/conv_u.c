@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 15:52:28 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:11:27 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 14:56:45 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static unsigned long long	get_arg(t_pf *pf)
 	if (pf->flag == NONE)
 		arg = va_arg(pf->args, unsigned int);
 	if (pf->flag == H)
-		arg = (unsigned char)va_arg(pf->args, unsigned int);
-	if (pf->flag == HH)
 		arg = (unsigned short)va_arg(pf->args, unsigned int);
+	if (pf->flag == HH)
+		arg = (unsigned char)va_arg(pf->args, unsigned int);
 	if (pf->flag == L)
 		arg = va_arg(pf->args, unsigned long);
 	if (pf->flag == LL)

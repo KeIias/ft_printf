@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:54:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:09:30 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 12:30:21 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,5 @@ char		*get_fractional_part(t_pf *pf, long double nbr)
 		str[i] = (int)nbr + '0';
 		nbr -= (int)nbr;
 	}
-	pf->len += ft_strlen(str);
 	return (str);
 }
