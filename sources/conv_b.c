@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_o.c                                           :+:      :+:    :+:   */
+/*   conv_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 16:12:59 by algautie         ###   ########.fr       */
+/*   Created: 2019/09/18 16:29:14 by algautie          #+#    #+#             */
+/*   Updated: 2019/09/18 16:29:15 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ static void					print_precision(t_pf *pf, char *str)
 	ft_putstr(str);
 }
 
-void						conv_o(t_pf *pf)
+void						conv_b(t_pf *pf)
 {
 	char *str;
 
-	if (!(str = ft_ulltoa_base(get_arg(pf), 8)))
+	if (!(str = ft_ulltoa_base(get_arg(pf), 2)))
 		pf->error = 1;
 	if (pf->error)
 		return ;

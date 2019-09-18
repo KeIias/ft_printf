@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 12:11:53 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:11:54 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 17:17:58 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	conv_percent(t_pf *pf)
 {
-	pf->len++;
 	if (pf->width > 1)
 	{
 		pf->len += pf->width;
@@ -23,6 +22,8 @@ void	conv_percent(t_pf *pf)
 		while (--pf->width)
 			write(1, " ", 1);
 	}
+	else
+		pf->len++;
 	if (!pf->preflag_minus)
 		write(1, "%", 1);
 }

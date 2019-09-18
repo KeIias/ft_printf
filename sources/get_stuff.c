@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:12:12 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 18:40:10 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	get_flag(t_pf *pf)
 
 static void	get_conversion(t_pf *pf)
 {
-	if (ft_cmpchars(pf->cpy[pf->i], "cspdiouxXf%"))
+	if (ft_cmpchars(pf->cpy[pf->i], "cspdiouxXfb%"))
 	{
 		pf->conversion = pf->format[pf->i];
 		(pf->i)++;
@@ -55,6 +55,8 @@ static void	get_width_precision(t_pf *pf)
 		if (ft_isdigit(pf->format[pf->i]))
 		{
 			tmp = ft_isolate_number(pf->cpy, pf->i);
+			if (tmp == 0)
+				pf->is_prec = 0;
 			pf->precision = tmp > MAX_RANGE ? 0 : tmp;
 			while (ft_isdigit(pf->format[pf->i]))
 				++(pf->i);

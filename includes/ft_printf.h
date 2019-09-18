@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 16:01:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 11:49:40 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 16:15:11 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void				conv_x(t_pf *pf);
 void				conv_u(t_pf *pf);
 void				conv_p(t_pf *pf);
 void				conv_f(t_pf *pf);
+void				conv_b(t_pf *pf);
 void				conv_percent(t_pf *pf);
 long long			round_nbr(t_pf *pf, char *str, long double nbr,\
 					long long int_part);

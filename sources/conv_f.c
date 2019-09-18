@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 15:53:42 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 19:02:49 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void			print_num(t_pf *pf, char *str, char *frac)
 	char	c;
 
 	precision = pf->precision;
-	len = ft_strlen(str) + pf->precision;
+	len = ft_strlen(str) + (frac ? pf->precision : 0);
 	pf->len += len;
 	pf->preflag_zero ? 0 : print_sign(pf, str);
 	if (ft_strchr(str, '-') != NULL)
@@ -102,7 +102,7 @@ void				conv_f(t_pf *pf)
 	frac = NULL;
 	if (pf->error)
 		return ;
-	pf->precision = (pf->precision < 0 ? 6 : pf->precision);
+	pf->precision = (pf->precision < 0 && pf->is_prec ? 6 : pf->precision);
 	if (pf->precision != 0 && pf->is_prec != 0)
 		frac = get_fractional_part(pf, nbr - (long long)nbr);
 	int_part = round_nbr(pf, frac, nbr, (long long)nbr);

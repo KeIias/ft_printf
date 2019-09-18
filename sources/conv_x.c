@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 14:21:06 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 15:33:25 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 18:19:54 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,16 @@ static unsigned long long	get_arg(t_pf *pf)
 	return (arg);
 }
 
+static void					print_prefix(t_pf *pf, char *str)
+{
+	if (pf->preflag_hash && !(ft_strlen(str) == 1 && str[0] == '0'))
+	{
+		write(1, "0", 1);
+		write(1, &(pf->conversion), 1);
+		pf->len += 2;
+	}
+}
+
 static void					print_width(t_pf *pf, char *str)
 {
 	char	c;
@@ -36,6 +46,7 @@ static void					print_width(t_pf *pf, char *str)
 
 	len = (int)ft_strlen(str);
 	c = pf->preflag_zero ? '0' : ' ';
+	pf->preflag_zero ? print_prefix(pf, str) : 0;
 	while (pf->width > ft_biggest(pf->precision, len) + (pf->preflag_hash * 2))
 	{
 		write(1, &c, 1);
@@ -52,12 +63,7 @@ static void					print_precision(t_pf *pf, char *str)
 	precision = pf->precision;
 	len = ft_strlen(str);
 	pf->len += len;
-	if (pf->preflag_hash)
-	{
-		write(1, "0", 1);
-		write(1, &(pf->conversion), 1);
-		pf->len += 2;
-	}
+	pf->preflag_zero ? 0 : print_prefix(pf, str);
 	while (precision > len)
 	{
 		write(1, "0", 1);

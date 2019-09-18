@@ -6,7 +6,7 @@
 #    By: algautie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 15:08:42 by algautie          #+#    #+#              #
-#    Updated: 2019/09/18 11:34:39 by algautie         ###   ########.fr        #
+#    Updated: 2019/09/18 16:18:13 by algautie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC_NAME = 		conv_c.c \
 				conv_s.c \
 				conv_x.c \
 				conv_u.c \
+				conv_b.c \
 				ft_printf.c \
 				get_stuff.c \
 				init.c \

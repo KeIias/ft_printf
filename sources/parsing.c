@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:43:07 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 14:49:31 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 19:08:30 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static void	remove_conflicts(t_pf *pf)
 	if (pf->preflag_zero && pf->preflag_minus)
 		pf->preflag_zero = 0;
 	if (pf->preflag_zero && ft_cmpchars(pf->conversion, "diouxX") \
-			&& pf->precision > 0)
+			&& (pf->precision > 0 || pf->is_prec == 0))
 		pf->preflag_zero = 0;
+	if (!pf->is_prec)
+		pf->precision = 0;
 }
 
 void		parse(t_pf *pf)
