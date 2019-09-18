@@ -6,9 +6,37 @@
 #    By: algautie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 15:08:42 by algautie          #+#    #+#              #
-#    Updated: 2019/09/17 11:39:43 by algautie         ###   ########.fr        #
+#    Updated: 2019/09/18 11:34:39 by algautie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# Text format
+_DEF 		=	$'\033[0m
+_END		=	$'\033[0m
+_GRA		=	$'\033[1m
+_SOUL		=	$'\033[4m
+_CLIG		=	$'\033[5m
+_SURL		=	$'\033[7m
+
+# Color
+_BLACK		=	$'\033[30m
+_RED		=	$'\033[31m
+_GREEN		=	$'\033[32m
+_YELLOW		=	$'\033[33m
+_BLUE		=	$'\033[34m
+_PURPLE		=	$'\033[35m
+_CYAN		=	$'\033[36m
+_GREY		=	$'\033[37m
+
+# Background
+_IBLACK		=	$'\033[40m
+_IRED		=	$'\033[41m
+_IGREEN		=	$'\033[42m
+_IYELLOW	=	$'\033[43m
+_IBLUE		=	$'\033[44m
+_IPURPLE	=	$'\033[45m
+_ICYAN		=	$'\033[46m
+_IGREY		=	$'\033[47m
 
 NAME = 		libftprintf.a
 
@@ -62,7 +90,9 @@ $(NAME): $(LIBFT_PATH)$(LIBFT_NAME) $(OBJ)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(INC)
 	@mkdir -p $(OBJ_PATH)
-	$(CC) -I $(INC) -I $(LIBFT_PATH) -o $@ -c $<
+	@$(CC) -I $(INC) -I $(LIBFT_PATH) -o $@ -c $<
+	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)\t" \
+		"COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
 
 clean:
 	@rm -rf $(OBJ_PATH)
