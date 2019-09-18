@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:54:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/12 16:51:14 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 12:09:30 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ long long	round_nbr(t_pf *pf, char *str, long double nbr, long long int_part)
 	return (beg == '9' && str[0] == '0' ? int_part + 1 : int_part);
 }
 
-char *get_fractional_part(t_pf *pf, long double nbr)
+char		*get_fractional_part(t_pf *pf, long double nbr)
 {
 	int		i;
 	char	*str;

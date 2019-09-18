@@ -6,13 +6,13 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 11:53:23 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 12:09:04 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static long double get_arg(t_pf *pf)
+static long double	get_arg(t_pf *pf)
 {
 	double arg;
 
@@ -39,8 +39,8 @@ static void			print_sign(t_pf *pf, char *str)
 
 static void			print_width(t_pf *pf, char *str)
 {
-	char c;
-	int len;
+	char	c;
+	int		len;
 
 	len = (int)ft_strlen(str) + pf->precision + (pf->precision > 0 ? 1 : 0);
 	if (ft_strchr(str, '-') != NULL)
@@ -108,6 +108,6 @@ void				conv_f(t_pf *pf)
 		pf->error = 1;
 	if (pf->error)
 		return ;
-	pf->preflag_minus == 1 ? print_num(pf,str, frac) : print_width(pf, str);
+	pf->preflag_minus == 1 ? print_num(pf, str, frac) : print_width(pf, str);
 	pf->preflag_minus == 0 ? print_num(pf, str, frac) : print_width(pf, str);
 }

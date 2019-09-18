@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 13:15:55 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/28 14:29:19 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 12:07:42 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ static void			print_sign(t_pf *pf, char *str)
 
 static void			print_width(t_pf *pf, char *str)
 {
-	char c;
-	int len;
+	char	c;
+	int		len;
 
 	len = (int)ft_strlen(str);
 	if (ft_strchr(str, '-') != NULL)

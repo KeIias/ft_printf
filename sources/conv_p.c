@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   conv_p.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/18 12:09:39 by algautie          #+#    #+#             */
+/*   Updated: 2019/09/18 12:11:48 by algautie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static unsigned long long	get_arg(t_pf *pf)
@@ -8,10 +20,10 @@ static unsigned long long	get_arg(t_pf *pf)
 	return (arg);
 }
 
-static void			print_width(t_pf *pf, char *str)
+static void					print_width(t_pf *pf, char *str)
 {
-	char c;
-	int len;
+	char	c;
+	int		len;
 
 	len = (int)ft_strlen(str);
 	c = pf->preflag_zero ? '0' : ' ';
@@ -23,7 +35,7 @@ static void			print_width(t_pf *pf, char *str)
 	}
 }
 
-void				conv_p(t_pf *pf)
+void						conv_p(t_pf *pf)
 {
 	char	*str;
 	int		i;

@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 14:21:06 by algautie          #+#    #+#             */
-/*   Updated: 2019/08/21 16:17:07 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/18 12:12:36 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static unsigned long long	get_arg(t_pf *pf)
 	return (arg);
 }
 
-static void			print_width(t_pf *pf, char *str)
+static void					print_width(t_pf *pf, char *str)
 {
 	char	c;
 	int		len;
@@ -44,7 +44,7 @@ static void			print_width(t_pf *pf, char *str)
 	}
 }
 
-static void			print_precision(t_pf *pf, char *str)
+static void					print_precision(t_pf *pf, char *str)
 {
 	int len;
 	int precision;
@@ -67,7 +67,7 @@ static void			print_precision(t_pf *pf, char *str)
 	ft_putstr(str);
 }
 
-void				conv_x(t_pf *pf)
+void						conv_x(t_pf *pf)
 {
 	char	*str;
 	int		i;
