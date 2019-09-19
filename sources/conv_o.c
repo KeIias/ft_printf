@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/19 12:08:08 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 12:26:48 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void					print_precision(t_pf *pf, char *str)
 		write(1, "0", 1);
 		pf->len++;
 		precision--;
-	} 
+	}
 	if (!(ft_strlen(str) == 1 && str[0] == '0' && pf->precision == 0))
 		ft_putstr(str);
 	else
