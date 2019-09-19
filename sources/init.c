@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 11:47:15 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 11:52:48 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:35:22 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_pf	*init_struct(t_pf *pf, const char *format)
 {
+	pf->conversion = '0';
 	pf->format = format;
 	pf->preflag_plus = 0;
 	pf->preflag_minus = 0;
@@ -35,6 +36,7 @@ t_pf	*init_struct(t_pf *pf, const char *format)
 
 void	reinit_struct(t_pf *pf)
 {
+	pf->conversion = '0';
 	pf->preflag_plus = 0;
 	pf->preflag_minus = 0;
 	pf->preflag_zero = 0;

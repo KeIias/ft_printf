@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 11:04:40 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 18:40:10 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:35:52 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static void	get_conversion(t_pf *pf)
 		pf->conversion = pf->format[pf->i];
 		(pf->i)++;
 	}
+	else
+		pf->conversion = '0';
 }
 
 static void	get_width_precision(t_pf *pf)
