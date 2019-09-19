@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/27 15:11:21 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 14:03:02 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 12:24:27 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@ void	conv_s(t_pf *pf)
 {
 	char	*arg;
 	int		len;
+	char	*nothing;
 
 	arg = (char*)va_arg(pf->args, char*);
-	if (arg)
-		len = ft_strlen((const char*)arg);
-	else
-		pf->error = 1;
-	if (pf->error == 1)
-		return ;
+	nothing = (arg ? NULL : ft_strdup("(null)"));
+	if (!arg)
+		arg = nothing;
+	len = ft_strlen((const char*)arg);
 	if (pf->precision == -1)
 		pf->precision = len;
 	if (pf->is_prec == 0)
@@ -38,4 +37,6 @@ void	conv_s(t_pf *pf)
 	}
 	if (!pf->preflag_minus)
 		write(1, arg, len > pf->precision ? pf->precision : len);
+	if (nothing)
+		free(nothing);
 }
