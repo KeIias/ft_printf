@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/19 13:15:26 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 15:53:28 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ static void			print_num(t_pf *pf, char *str, char *frac)
 
 	precision = pf->precision;
 	len = ft_strlen(str) + (frac ? pf->precision : 0);
-	pf->len += len;
-	pf->preflag_zero ? 0 : print_sign(pf, str);
 	if (ft_strchr(str, '-') != NULL)
 		len--;
+	pf->len += len;
+	pf->preflag_zero ? 0 : print_sign(pf, str);
 	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
 	{
 		write(1, " ", 1);
