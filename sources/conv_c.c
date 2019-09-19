@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/26 16:05:01 by algautie          #+#    #+#             */
-/*   Updated: 2019/06/27 15:21:01 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 11:43:22 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,10 @@ void	conv_c(t_pf *pf)
 	char arg;
 
 	arg = (char)va_arg(pf->args, int);
-	if (arg)
-		pf->len += 1;
-	else
-	{
-		pf->error = 1;
-		return ;
-	}
+	pf->len += 1;
 	if (pf->width > 1)
 	{
-		pf->len += pf->width;
+		pf->len += pf->width - 1;
 		if (pf->preflag_minus)
 			write(1, &arg, 1);
 		while (--pf->width)

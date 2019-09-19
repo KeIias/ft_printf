@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 13:15:55 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 17:26:36 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 12:06:11 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static void			print_width(t_pf *pf, char *str)
 	len = (int)ft_strlen(str);
 	if (ft_strchr(str, '-') != NULL)
 		len--;
+	if (len == 1 && str[0] == '0' && pf->width > 0 && pf->precision == 0)
+		pf->width += 1;
 	if (pf->preflag_plus || ft_strchr(str, '-') != NULL || pf->preflag_space)
 		pf->width--;
 	c = pf->preflag_zero ? '0' : ' ';
@@ -85,7 +87,10 @@ static void			print_precision(t_pf *pf, char *str)
 		pf->len++;
 		precision--;
 	}
-	str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
+	if (!(ft_strlen(str) == 1 && str[0] == '0' && pf->precision == 0))
+		str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
+	else
+		pf->len--;
 }
 
 void				conv_d(t_pf *pf)
