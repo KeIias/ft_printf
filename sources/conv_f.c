@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 16:56:27 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 19:02:49 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 13:15:26 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ static void			print_num(t_pf *pf, char *str, char *frac)
 		pf->len++;
 	}
 	str[0] == '-' ? ft_putstr(str + 1) : ft_putstr(str);
-	if ((pf->preflag_hash || pf->precision > 0) && pf->is_prec)
+	if (pf->preflag_hash || pf->precision > 0)
 	{
 		write(1, ".", 1);
 		pf->len++;

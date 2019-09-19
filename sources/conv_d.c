@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/03 13:15:55 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/19 12:06:11 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 14:24:08 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ static void			print_width(t_pf *pf, char *str)
 		pf->width--;
 	c = pf->preflag_zero ? '0' : ' ';
 	pf->preflag_zero ? print_sign(pf, str) : 0;
+	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
+	{
+		write(1, " ", 1);
+		pf->len++;
+	}
 	while (pf->width > ft_biggest(pf->precision, len))
 	{
 		write(1, &c, 1);
@@ -76,11 +81,6 @@ static void			print_precision(t_pf *pf, char *str)
 		len--;
 	pf->len += len;
 	pf->preflag_zero ? 0 : print_sign(pf, str);
-	if (pf->preflag_space && ft_strchr(str, '-') == NULL)
-	{
-		write(1, " ", 1);
-		pf->len++;
-	}
 	while (precision > len)
 	{
 		write(1, "0", 1);

@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/21 12:26:37 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/19 12:26:48 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/19 14:05:07 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void					print_width(t_pf *pf, char *str)
 	}
 }
 
-static void					print_precision(t_pf *pf, char *str)
+static void					print_precision(t_pf *pf, char *str, int h)
 {
 	int len;
 	int precision;
@@ -67,7 +67,7 @@ static void					print_precision(t_pf *pf, char *str)
 		pf->len++;
 		precision--;
 	}
-	if (!(ft_strlen(str) == 1 && str[0] == '0' && pf->precision == 0))
+	if (!(len == 1 && str[0] == '0' && pf->precision == 0))
 		ft_putstr(str);
 	else
 		pf->len--;
@@ -75,16 +75,18 @@ static void					print_precision(t_pf *pf, char *str)
 
 void						conv_o(t_pf *pf)
 {
-	char *str;
+	char	*str;
+	int		h;
 
+	h = pf->preflag_hash;
 	if (!(str = ft_ulltoa_base(get_arg(pf), 8)))
 		pf->error = 1;
 	if (pf->error)
 		return ;
-	if (str[0] == '0')
+	if (str[0] == '0' && pf->precision != 0)
 		pf->preflag_hash = 0;
-	pf->preflag_minus == 1 ? print_precision(pf, str) : print_width(pf, str);
-	pf->preflag_minus == 0 ? print_precision(pf, str) : print_width(pf, str);
+	pf->preflag_minus == 1 ? print_precision(pf, str, h) : print_width(pf, str);
+	pf->preflag_minus == 0 ? print_precision(pf, str, h) : print_width(pf, str);
 	if (str)
 		free(str);
 }
