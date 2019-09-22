@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/29 15:54:56 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/18 12:30:21 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/22 14:06:53 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ char		*get_fractional_part(t_pf *pf, long double nbr)
 		nbr *= -1;
 	if (pf->precision == 0)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * pf->precision + 2);
+	if (!(str = (char *)malloc(sizeof(char) * pf->precision + 2)))
+		return (NULL);
 	str[pf->precision + 1] = '\0';
 	i = -1;
 	while (++i <= pf->precision)
